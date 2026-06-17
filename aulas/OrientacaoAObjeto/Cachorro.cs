@@ -2,15 +2,29 @@
 {
     public class Cachorro
     {
-        public string Nome { get; set; }
+        public Cachorro(
+            string nome, 
+            double altura, 
+            bool adestrado, 
+            DateTime dataDeNascimento, 
+            string raca)
+        {
+            Nome = nome;
+            Altura = altura;
+            Adestrado = adestrado;
+            DataDeNascimento = dataDeNascimento;
+            Raca = raca;
+        }
 
-        public string Raca { get; set; }
+        public string Nome { get; private set; }
+
+        public string Raca { get; private set; }
 
         public double Altura { get; set; }
 
         public double Peso { get; set; }
 
-        public DateTime DataDeNascimento { get; set; }
+        public DateTime DataDeNascimento { get; private set; }
 
         public bool Adestrado { get; set; }
 

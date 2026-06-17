@@ -16,7 +16,6 @@
             IsAtivo = isAtivo;
         }
 
-
         public string Nome { get; private set; }
 
         public DateTime DataDeNascimento { get; private set; }

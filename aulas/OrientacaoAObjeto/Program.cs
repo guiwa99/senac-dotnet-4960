@@ -1,4 +1,6 @@
-﻿namespace OrientacaoAObjeto
+﻿using System;
+
+namespace OrientacaoAObjeto
 {
     internal class Program
     {
@@ -37,29 +39,29 @@
 
             pessoa2.SeComunicar();
 
-            //Cachorro junior = new Cachorro();
-            //junior.Nome = "Junior";
-            //junior.Altura = 0.2;
-            //junior.Adestrado = false;
-            //junior.DataDeNascimento = new DateTime(2016, 10, 10);
-            //junior.Raca = "Pinscher";
+            Cachorro junior = new Cachorro("Junior", 0.2, false, new DateTime(2016, 10, 10), "Pinscher");
 
-            //Console.WriteLine("Informações do cachorro Junior");
-            //Console.WriteLine($"Nome {junior.Nome}");
-            //Console.WriteLine($"Data de nascimento {junior.DataDeNascimento}");
-            //Console.WriteLine($"Raca {junior.Raca}");
-            //junior.SeComunicar();
+            Console.WriteLine("Informações do cachorro Junior");
+            Console.WriteLine($"Nome {junior.Nome}");
+            Console.WriteLine($"Data de nascimento {junior.DataDeNascimento}");
+            Console.WriteLine($"Raca {junior.Raca}");
+            junior.SeComunicar();
 
-            //Pedido pedido = new Pedido();
-            //pedido.Cliente = pessoa1;
-            //pedido.DataDoServico = DateTime.Now;
-            //pedido.ValorTotal = 100.99;
-            //pedido.Observacao = "Cliente vai buscar cachorro às 15:00h";
+            Pedido pedido = new Pedido(pessoa1, DateTime.Now);
 
-            //Console.WriteLine("Informações do pedido");
-            //Console.WriteLine($"Cliente {pedido.Cliente.Nome}");
-            //Console.WriteLine($"Observação do pedido {pedido.Observacao}");
+            pedido.ValorTotal = 100.99;
+            pedido.Observacao = "Cliente vai buscar cachorro às 15:00h";
 
+            Console.WriteLine("Informações do pedido");
+            Console.WriteLine($"Cliente {pedido.Cliente.Nome}");
+            Console.WriteLine($"Observação do pedido {pedido.Observacao}");
+
+            Console.WriteLine("Criação do pedido 2");
+            var pedido2 = new Pedido(pessoa2, DateTime.Now, 199.90, "Sem observação");
+
+            Console.WriteLine("Informações do pedido 2");
+            Console.WriteLine($"Cliente {pedido2.Cliente.Nome}");
+            Console.WriteLine($"Observação do pedido {pedido2.Observacao}");
         }
     }
 }
