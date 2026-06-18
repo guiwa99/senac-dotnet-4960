@@ -6,7 +6,7 @@ namespace OrientacaoAObjeto
     {
         static void Main(string[] args)
         {
-            Pessoa pessoa1 = new Pessoa(
+            var pessoa1 = new Pessoa(
                 "Guilherme", 
                 new DateTime(1999, 6, 17), 
                 1.75, 
@@ -23,7 +23,7 @@ namespace OrientacaoAObjeto
 
             Console.WriteLine($"Novo nome pessoa 1 {pessoa1.Nome}");
 
-            Pessoa pessoa2 = new Pessoa(
+            var pessoa2 = new Pessoa(
                 "Douglas",
                 new DateTime(1996, 11, 20),
                 1.77,
@@ -39,7 +39,7 @@ namespace OrientacaoAObjeto
 
             pessoa2.SeComunicar();
 
-            Cachorro junior = new Cachorro("Junior", 0.2, false, new DateTime(2016, 10, 10), "Pinscher");
+            var junior = new Cachorro("Junior", 0.2, false, new DateTime(2016, 10, 10), "Pinscher");
 
             Console.WriteLine("Informações do cachorro Junior");
             Console.WriteLine($"Nome {junior.Nome}");
@@ -47,7 +47,7 @@ namespace OrientacaoAObjeto
             Console.WriteLine($"Raca {junior.Raca}");
             junior.SeComunicar();
 
-            Pedido pedido = new Pedido(pessoa1, DateTime.Now);
+            var pedido = new Pedido(pessoa1, DateTime.Now);
 
             pedido.ValorTotal = 100.99;
             pedido.Observacao = "Cliente vai buscar cachorro às 15:00h";
