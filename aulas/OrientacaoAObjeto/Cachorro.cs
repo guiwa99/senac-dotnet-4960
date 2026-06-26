@@ -1,6 +1,6 @@
 ﻿namespace OrientacaoAObjeto
 {
-    public class Cachorro
+    public class Cachorro : Animal
     {
         public Cachorro(
             string nome, 
@@ -16,23 +16,13 @@
             Raca = raca;
         }
 
-        public string Nome { get; private set; }
-
         public string Raca { get; private set; }
-
-        public double Altura { get; set; }
-
-        public double Peso { get; set; }
-
-        public DateTime DataDeNascimento { get; private set; }
 
         public bool Adestrado { get; set; }
 
         public bool IsVacinado { get; set; }
 
-        public bool IsAtivo { get; set; }
-
-        public void SeComunicar()
+        public override void SeComunicar()
         {
             Console.WriteLine($"Au au");
         }

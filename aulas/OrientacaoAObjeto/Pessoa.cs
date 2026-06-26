@@ -1,6 +1,6 @@
 ﻿namespace OrientacaoAObjeto
 {
-    public class Pessoa
+    public class Pessoa : Animal
     {
         public Pessoa(
             string nome, 
@@ -16,12 +16,6 @@
             IsAtivo = isAtivo;
         }
 
-        public string Nome { get; private set; }
-
-        public DateTime DataDeNascimento { get; private set; }
-
-        public double Altura { get; set; }
-
         public string Cpf { get; private set; }
 
         public string RG { get; private set; }
@@ -30,9 +24,7 @@
 
         public string Email { get; set; }
 
-        public bool IsAtivo { get; set; }
-
-        public void SeComunicar()
+        public override void SeComunicar()
         {
             Console.WriteLine($"Olá, meu nome é {Nome}");
         }
@@ -41,7 +33,5 @@
         {
             Console.WriteLine("Pessoa caminhando...");
         }
-
-
     }
 }

@@ -14,7 +14,10 @@ namespace SistemaDeLogin
 
             if (nomeUsuario == "admin" && senha == "1234")
             {
-                MessageBox.Show($"Fez login com sucesso!", "Sucesso ao fazer login", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                this.Hide();
+                string nome = txtNome.Text;
+                new MenuPrincipal(nome).ShowDialog();
+                this.Show();
             }
             else
             {

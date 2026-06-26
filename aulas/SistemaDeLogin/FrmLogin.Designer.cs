@@ -33,6 +33,8 @@
             label2 = new Label();
             txtSenha = new TextBox();
             btnEnviar = new Button();
+            txtNome = new TextBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -79,18 +81,37 @@
             btnEnviar.UseVisualStyleBackColor = true;
             btnEnviar.Click += btnEnviar_Click;
             // 
-            // Form1
+            // txtNome
+            // 
+            txtNome.Location = new Point(180, 53);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(301, 31);
+            txtNome.TabIndex = 5;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 15F);
+            label3.Location = new Point(180, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(301, 41);
+            label3.TabIndex = 6;
+            label3.Text = "Nome a ser chamado";
+            // 
+            // FrmLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label3);
+            Controls.Add(txtNome);
             Controls.Add(btnEnviar);
             Controls.Add(txtSenha);
             Controls.Add(label2);
             Controls.Add(txtUsuario);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "FrmLogin";
+            Text = "Login";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -102,5 +123,7 @@
         private Label label2;
         private TextBox txtSenha;
         private Button btnEnviar;
+        private TextBox txtNome;
+        private Label label3;
     }
 }
