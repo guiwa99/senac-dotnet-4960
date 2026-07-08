@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GerenciamentoDeFuncionarios.Banco.Repositories;
+using GerenciamentoDeFuncionarios.Modelos;
 
 namespace GerenciamentoDeFuncionarios.Frms
 {
@@ -26,7 +28,9 @@ namespace GerenciamentoDeFuncionarios.Frms
             decimal salario = decimal.Parse(txtSalario.Text);
             var dataCadastro = DateTime.Now;
 
- 
+            var funcionario = new Funcionario(nome, email, sexo, tipoContrato, salario, dataCadastro);
+
+             FuncionarioRepository.Adicionar(funcionario);
         }
     }
 }
