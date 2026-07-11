@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GerenciamentoDeFuncionarios.Banco.Repositories;
+using GerenciamentoDeFuncionarios.Modelos;
 
 namespace GerenciamentoDeFuncionarios.Frms
 {
@@ -15,6 +17,15 @@ namespace GerenciamentoDeFuncionarios.Frms
         public FrmTelaPrincipal()
         {
             InitializeComponent();
+
+            Load += FrmTelaPrincipal_Load;
+        }
+
+        private async void FrmTelaPrincipal_Load(object? sender, EventArgs e)
+        {
+            var funcionarios = await FuncionarioRepository.ObterTodos();
+
+            dgvFuncionarios.DataSource = new BindingList<Funcionario>(funcionarios.ToList());
         }
 
         private void btnNovo_Click(object sender, EventArgs e)

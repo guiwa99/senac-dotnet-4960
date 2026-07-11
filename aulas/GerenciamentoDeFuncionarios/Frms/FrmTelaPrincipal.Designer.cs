@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
+            dgvFuncionarios = new DataGridView();
             btnNovo = new Button();
             btnEditar = new Button();
             btnExcluir = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFuncionarios).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvFuncionarios
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(776, 352);
-            dataGridView1.TabIndex = 0;
+            dgvFuncionarios.AllowUserToAddRows = false;
+            dgvFuncionarios.AllowUserToDeleteRows = false;
+            dgvFuncionarios.AllowUserToResizeRows = false;
+            dgvFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFuncionarios.Location = new Point(12, 12);
+            dgvFuncionarios.Name = "dgvFuncionarios";
+            dgvFuncionarios.RowHeadersWidth = 62;
+            dgvFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvFuncionarios.Size = new Size(776, 352);
+            dgvFuncionarios.TabIndex = 0;
             // 
             // btnNovo
             // 
@@ -80,16 +84,16 @@
             Controls.Add(btnExcluir);
             Controls.Add(btnEditar);
             Controls.Add(btnNovo);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvFuncionarios);
             Name = "FrmTelaPrincipal";
             Text = "Tela principal";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvFuncionarios).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvFuncionarios;
         private Button btnNovo;
         private Button btnEditar;
         private Button btnExcluir;
