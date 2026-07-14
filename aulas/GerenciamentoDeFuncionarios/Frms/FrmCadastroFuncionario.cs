@@ -1,4 +1,6 @@
-﻿using GerenciamentoDeFuncionarios.Banco.Repositories;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text;
+using GerenciamentoDeFuncionarios.Banco.Repositories;
 using GerenciamentoDeFuncionarios.Modelos;
 
 namespace GerenciamentoDeFuncionarios.Frms
@@ -21,7 +23,27 @@ namespace GerenciamentoDeFuncionarios.Frms
 
             var funcionario = new Funcionario(nome, email, sexo, tipoContrato, salario, dataCadastro);
 
-            await FuncionarioRepository.Adicionar(funcionario);
+            var stringBuilder = new StringBuilder();
+            var listaDeErros = new List<ValidationResult>();
+
+            var contexto = new ValidationContext(funcionario);
+            Validator.TryValidateObject(funcionario, contexto, listaDeErros, true);
+
+            if (listaDeErros.Count > 0)
+            {
+                foreach(var erro in listaDeErros)
+                {
+                    stringBuilder.Append(erro.ErrorMessage + "\n");
+                }
+
+                lblErros.Text = stringBuilder.ToString();
+            }
+            else
+            {
+                await FuncionarioRepository.Adicionar(funcionario);
+
+                this.Close();
+            }    
         }
     }
 }

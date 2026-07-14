@@ -1,4 +1,6 @@
-﻿namespace GerenciamentoDeFuncionarios.Modelos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GerenciamentoDeFuncionarios.Modelos
 {
     public class Funcionario
     {
@@ -31,8 +33,12 @@
 
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "O campo 'Nome' é obrigatório")]
+        [StringLength(255, MinimumLength = 3, ErrorMessage = "O campo 'Nome' deve ter entre 3 caracteres e 255")]
         public string Nome { get; private set; }
 
+        [Required(ErrorMessage = "O campo 'Email' é obrigatório")]
+        [EmailAddress(ErrorMessage = "O 'Email' é inválido")]
         public string Email { get; private set; }
 
         public char Sexo { get; private set; }

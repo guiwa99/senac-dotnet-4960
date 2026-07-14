@@ -42,6 +42,7 @@
             rbPj = new RadioButton();
             rbClt = new RadioButton();
             btnSalvar = new Button();
+            lblErros = new Label();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -115,13 +116,13 @@
             rbFeminino.Name = "rbFeminino";
             rbFeminino.Size = new Size(110, 29);
             rbFeminino.TabIndex = 1;
-            rbFeminino.TabStop = true;
             rbFeminino.Text = "Feminino";
             rbFeminino.UseVisualStyleBackColor = true;
             // 
             // rbMasculino
             // 
             rbMasculino.AutoSize = true;
+            rbMasculino.Checked = true;
             rbMasculino.Location = new Point(6, 28);
             rbMasculino.Name = "rbMasculino";
             rbMasculino.Size = new Size(117, 29);
@@ -149,7 +150,6 @@
             rbAutonomo.Name = "rbAutonomo";
             rbAutonomo.Size = new Size(124, 29);
             rbAutonomo.TabIndex = 2;
-            rbAutonomo.TabStop = true;
             rbAutonomo.Text = "Autônomo";
             rbAutonomo.UseVisualStyleBackColor = true;
             // 
@@ -160,13 +160,13 @@
             rbPj.Name = "rbPj";
             rbPj.Size = new Size(52, 29);
             rbPj.TabIndex = 1;
-            rbPj.TabStop = true;
             rbPj.Text = "PJ";
             rbPj.UseVisualStyleBackColor = true;
             // 
             // rbClt
             // 
             rbClt.AutoSize = true;
+            rbClt.Checked = true;
             rbClt.Location = new Point(6, 30);
             rbClt.Name = "rbClt";
             rbClt.Size = new Size(64, 29);
@@ -185,11 +185,21 @@
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
             // 
+            // lblErros
+            // 
+            lblErros.AutoSize = true;
+            lblErros.ForeColor = Color.Red;
+            lblErros.Location = new Point(66, 312);
+            lblErros.Name = "lblErros";
+            lblErros.Size = new Size(0, 25);
+            lblErros.TabIndex = 9;
+            // 
             // FrmCadastroFuncionario
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(lblErros);
             Controls.Add(btnSalvar);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
@@ -225,5 +235,6 @@
         private RadioButton rbPj;
         private RadioButton rbClt;
         private Button btnSalvar;
+        private Label lblErros;
     }
 }

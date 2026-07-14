@@ -23,14 +23,21 @@ namespace GerenciamentoDeFuncionarios.Frms
 
         private async void FrmTelaPrincipal_Load(object? sender, EventArgs e)
         {
+            await AtualizarTabela();
+        }
+
+        private async void btnNovo_Click(object sender, EventArgs e)
+        {
+            new FrmCadastroFuncionario().ShowDialog();
+
+            await AtualizarTabela();
+        }
+
+        private async Task AtualizarTabela()
+        {
             var funcionarios = await FuncionarioRepository.ObterTodos();
 
             dgvFuncionarios.DataSource = new BindingList<Funcionario>(funcionarios.ToList());
-        }
-
-        private void btnNovo_Click(object sender, EventArgs e)
-        {
-            new FrmCadastroFuncionario().ShowDialog();
         }
     }
 }
