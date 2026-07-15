@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 using System.Text;
 using GerenciamentoDeFuncionarios.Banco.Repositories;
 using GerenciamentoDeFuncionarios.Modelos;
@@ -31,7 +32,7 @@ namespace GerenciamentoDeFuncionarios.Frms
 
             if (listaDeErros.Count > 0)
             {
-                foreach(var erro in listaDeErros)
+                foreach (var erro in listaDeErros)
                 {
                     stringBuilder.Append(erro.ErrorMessage + "\n");
                 }
@@ -43,7 +44,30 @@ namespace GerenciamentoDeFuncionarios.Frms
                 await FuncionarioRepository.Adicionar(funcionario);
 
                 this.Close();
-            }    
+            }
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != ',')
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == ',' && ((TextBox)sender).Text.Contains(",")) 
+            {
+                e.Handled = true;
+            }
+
+            if (e.KeyChar == ',' && ((TextBox)sender).Text == string.Empty)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

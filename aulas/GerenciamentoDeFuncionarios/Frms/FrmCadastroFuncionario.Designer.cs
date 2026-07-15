@@ -97,6 +97,7 @@
             txtSalario.PlaceholderText = "2000 (somente valores numéricos)";
             txtSalario.Size = new Size(273, 31);
             txtSalario.TabIndex = 5;
+            txtSalario.KeyPress += txtSalario_KeyPress;
             // 
             // groupBox1
             // 
