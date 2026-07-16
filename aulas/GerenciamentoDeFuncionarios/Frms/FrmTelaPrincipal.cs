@@ -40,18 +40,31 @@ namespace GerenciamentoDeFuncionarios.Frms
             dgvFuncionarios.DataSource = new BindingList<Funcionario>(funcionarios.ToList());
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private async void btnExcluir_Click(object sender, EventArgs e)
         {
-            // pegar o nome do funcionário e exibir uma mensagem perguntando 
-            // se o usuario tem certeza que deseja excluir
             string nomeFuncionario = dgvFuncionarios.SelectedRows[0].Cells[1].Value.ToString();
 
-            MessageBox.Show($"Tem certeza que deseja excluir o funcionário {nomeFuncionario}?",
+            var retorno = MessageBox.Show($"Tem certeza que deseja excluir o funcionário {nomeFuncionario}?",
                 "Exclusão de funcionário", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            // se sim, exclui o funcionário do banco e exibe mensagem de sucesso
+            if (retorno == DialogResult.Yes)
+            {
+                int idFuncionario = (int)dgvFuncionarios.SelectedRows[0].Cells[0].Value;
 
-            // se não, só fecha MessageBox e volta para a tela principal
+                await FuncionarioRepository.DeletarPorId(idFuncionario);
+
+                MessageBox.Show($"O funcionário {nomeFuncionario} foi excluido com sucesso",
+                    "Exclusão de funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                await AtualizarTabela();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int idFuncionario = (int)dgvFuncionarios.SelectedRows[0].Cells[0].Value;
+
+            new FrmAtualizacaoFuncionario(idFuncionario).ShowDialog();
         }
     }
 }
