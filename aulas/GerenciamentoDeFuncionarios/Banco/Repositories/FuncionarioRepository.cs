@@ -55,5 +55,31 @@ namespace GerenciamentoDeFuncionarios.Banco.Repositories
                 }
                 );
         }
+
+        public static async Task<Funcionario> ObterPorId(int idFuncionario)
+        {
+            var funcionario = await ConexaoBanco.CriarConexao().QueryFirstOrDefaultAsync<Funcionario>(
+                @"
+                    SELECT 
+                        Id,
+                        Nome,
+                        Email,
+                        Sexo,
+                        TipoDeContrato,
+                        Salario,
+                        DataDeCadastro,
+                        DataDeAtualizacao
+                    FROM 
+                        Funcionario
+                    WHERE Id = @IdFuncionario
+                ",
+                new
+                {
+                    IdFuncionario = idFuncionario
+                }
+                );
+
+            return funcionario;
+        }
     }
 }
