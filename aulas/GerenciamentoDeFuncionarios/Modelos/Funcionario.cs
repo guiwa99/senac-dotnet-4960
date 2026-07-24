@@ -50,5 +50,10 @@ namespace GerenciamentoDeFuncionarios.Modelos
         public DateTime DataDeCadastro { get; private set; }
 
         public DateTime? DataDeAtualizacao { get; set; }
+
+        public void SetEmail(string email)
+        {
+            Email = email;
+        }
     }
 }

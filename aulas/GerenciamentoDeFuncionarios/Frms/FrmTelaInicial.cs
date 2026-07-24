@@ -15,5 +15,15 @@ namespace GerenciamentoDeFuncionarios
             new FrmLoginAdministrador().ShowDialog();
             this.Show();
         }
+
+        private void FrmTelaInicial_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSouFuncionario_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

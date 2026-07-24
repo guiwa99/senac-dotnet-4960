@@ -64,6 +64,7 @@
             btnSalvar.TabIndex = 18;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // groupBox2
             // 

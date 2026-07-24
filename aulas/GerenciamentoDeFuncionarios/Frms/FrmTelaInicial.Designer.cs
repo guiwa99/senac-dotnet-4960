@@ -50,6 +50,7 @@
             btnSouFuncionario.TabIndex = 1;
             btnSouFuncionario.Text = "Sou funcionário";
             btnSouFuncionario.UseVisualStyleBackColor = true;
+            btnSouFuncionario.Click += btnSouFuncionario_Click;
             // 
             // FrmTelaInicial
             // 
@@ -60,6 +61,7 @@
             Controls.Add(btnSouAdministrador);
             Name = "FrmTelaInicial";
             Text = "Tela inicial";
+            Load += FrmTelaInicial_Load;
             ResumeLayout(false);
         }
 

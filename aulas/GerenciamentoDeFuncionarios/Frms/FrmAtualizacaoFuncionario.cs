@@ -1,4 +1,5 @@
 ﻿using GerenciamentoDeFuncionarios.Banco.Repositories;
+using GerenciamentoDeFuncionarios.Modelos;
 
 namespace GerenciamentoDeFuncionarios.Frms
 {
@@ -44,6 +45,15 @@ namespace GerenciamentoDeFuncionarios.Frms
                     rbAutonomo.Checked = true;
                     break;
             }
+        }
+
+        private async void btnSalvar_Click(object sender, EventArgs e)
+        {
+            var funcionario = await FuncionarioRepository.ObterPorId(this.idFuncionario);
+
+            funcionario.SetEmail(txtEmail.Text);
+
+            
         }
     }
 }
